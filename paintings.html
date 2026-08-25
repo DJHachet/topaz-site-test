@@ -1,0 +1,536 @@
+<!doctype html>
+<!-- v20260825 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paintings — Topaz Hachet</title>
+<meta name="description" content="Paintings by Topaz Hachet — Oil and cold-pressed patience. Thin glazes stacked until the green reads as depth rather than colour — closer to weather than to paint.">
+<meta property="og:title" content="Paintings — Topaz Hachet">
+<meta property="og:description" content="Paintings by Topaz Hachet — Oil and cold-pressed patience. Thin glazes stacked until the green reads as depth rather than colour — closer to weather than to paint.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjYzMCIgdmlld0JveD0iMCAwIDEyMDAgNjMwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI0MyUiIGN5PSIyMiUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iaHNsKDExMywyMiUsMjUlKSIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSJoc2woMTEzLDMwJSwxMyUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBmaWxsPSJ1cmwoI2cpIi8+PGNpcmNsZSBjeD0iODQwIiBjeT0iMTc2IiByPSI4MyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJoc2woMTEzLDMwJSw2MCUpIiBzdHJva2Utb3BhY2l0eT0iMC4xOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZmlsbD0iaHNsKDExMywyMCUsNzIlKSIgZmlsbC1vcGFjaXR5PSIwLjM1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC1zdHlsZT0iaXRhbGljIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5UT1BBWiBIQUNIRVQ8L3RleHQ+PC9zdmc+">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* backgrounds */
+  --bg:#080e02; --bg-deep:#010101; --panel:#20251e; --panel-2:#161a13;
+  /* text */
+  --text:#E8EBE2; --text-mid:rgba(232,235,226,.66); --text-dim:rgba(232,235,226,.40);
+  /* accent — pale moonlight green (replaces gold) */
+  --accent:#A8C29A; --accent-dim:#7d9a70; --bone:#D9DED0;
+  --border:rgba(200,220,190,.09);
+  --maxw:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"EB Garamond",Georgia,serif; font-size:18px; line-height:1.72;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+h1,h2,h3{font-family:"Cinzel",serif; font-weight:600; line-height:1.14; margin:0}
+.serif-i{font-style:italic}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 2.5rem}
+.eyebrow{font-family:"Cinzel",serif; font-size:.72rem; letter-spacing:.32em;
+  text-transform:uppercase; color:var(--accent); font-weight:600}
+.lede{color:var(--text-mid); font-size:1.12rem; max-width:60ch}
+
+/* ---------- moon glow / fog helpers ---------- */
+.glow{position:absolute; border-radius:50%; pointer-events:none; z-index:0;
+  background:radial-gradient(circle, rgba(168,194,154,.14), transparent 68%); filter:blur(6px)}
+.watermark{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:"Pirata One",serif; color:var(--accent); opacity:.035; font-size:34vw;
+  pointer-events:none; user-select:none; z-index:0; line-height:1; letter-spacing:-.04em}
+
+/* ---------- corner flourishes ---------- */
+.flourish{position:absolute; width:26px; height:26px; opacity:.6; z-index:2}
+.flourish path{stroke:var(--accent); stroke-width:1.4; fill:none}
+.fl-tl{top:12px; left:12px} .fl-tr{top:12px; right:12px; transform:scaleX(-1)}
+.fl-bl{bottom:12px; left:12px; transform:scaleY(-1)}
+.fl-br{bottom:12px; right:12px; transform:scale(-1,-1)}
+
+/* ---------- top nav ---------- */
+.topbar{position:fixed; top:0; left:0; right:0; z-index:120; display:flex;
+  align-items:center; justify-content:space-between; padding:1.15rem 2.5rem;
+  transition:background .4s ease, backdrop-filter .4s ease, padding .3s ease}
+.topbar.scrolled{background:rgba(1,1,1,.72); backdrop-filter:blur(9px); padding:.7rem 2.5rem;
+  border-bottom:1px solid var(--border)}
+.brand{font-family:"Pirata One",serif; font-size:1.55rem; letter-spacing:.02em; color:var(--bone)}
+.brand span{color:var(--accent)}
+.hamb{background:none; border:none; cursor:pointer; padding:8px; display:flex;
+  flex-direction:column; gap:5px; z-index:130}
+.hamb span{width:26px; height:1.6px; background:var(--text); transition:.35s}
+body.menu-open .hamb span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+body.menu-open .hamb span:nth-child(2){opacity:0}
+body.menu-open .hamb span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+
+/* ---------- slide-out overlay menu ---------- */
+.nav-backdrop{position:fixed; inset:0; z-index:110; background:rgba(1,1,1,.55);
+  opacity:0; pointer-events:none; transition:opacity .5s ease}
+body.menu-open .nav-backdrop{opacity:1; pointer-events:auto}
+.nav-right{position:fixed; top:0; right:0; height:100%; width:min(560px,100%); z-index:125;
+  background:linear-gradient(160deg,#0b120a,#010101 70%); border-left:1px solid var(--border);
+  transform:translateX(102%); transition:transform .62s cubic-bezier(.65,0,.35,1);
+  display:flex; flex-direction:column; justify-content:center; padding:3.5rem 3.4rem;
+  overflow:hidden}
+body.menu-open .nav-right{transform:translateX(0)}
+.nav-right .watermark{font-size:22rem; opacity:.05}
+.menu-close{position:absolute; top:1.6rem; right:2rem; background:none; border:none;
+  cursor:pointer; color:var(--text-mid); font-family:"Cinzel",serif; font-size:.72rem;
+  letter-spacing:.2em; display:flex; align-items:center; gap:.6rem}
+.menu-close .seal{width:26px; height:26px; border:1.4px solid var(--accent); border-radius:50%;
+  display:grid; place-items:center; color:var(--accent); font-size:1rem}
+.nav-links{list-style:none; margin:0; padding:0; position:relative; z-index:2}
+.nav-link{display:flex; align-items:baseline; gap:1rem; margin:.16em 0;
+  opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
+.nav-link a{font-family:"Cinzel",serif; font-size:clamp(1.6rem,4.4vw,2.5rem); font-weight:600;
+  color:var(--text); transition:color .3s, letter-spacing .3s}
+.nav-link a:hover{color:var(--accent); letter-spacing:.02em}
+.nav-link .num{font-family:"EB Garamond",serif; font-style:italic; font-size:.9rem;
+  color:var(--accent-dim); min-width:2ch}
+.nav-link.active a{color:var(--accent)}
+.nav-link.active .num{color:var(--accent)}
+/* cascade — one rule per menu item + a spare (gotcha #1) */
+.nav-right.open .nav-links .nav-link:nth-child(1){transition-delay:0.14s}
+.nav-right.open .nav-links .nav-link:nth-child(2){transition-delay:0.20s}
+.nav-right.open .nav-links .nav-link:nth-child(3){transition-delay:0.26s}
+.nav-right.open .nav-links .nav-link:nth-child(4){transition-delay:0.32s}
+.nav-right.open .nav-links .nav-link:nth-child(5){transition-delay:0.38s}
+.nav-right.open .nav-links .nav-link:nth-child(6){transition-delay:0.44s}
+.nav-right.open .nav-links .nav-link:nth-child(7){transition-delay:0.50s}
+.nav-right.open .nav-links .nav-link:nth-child(8){transition-delay:0.56s}
+.nav-right.open .nav-links .nav-link:nth-child(9){transition-delay:0.62s}
+.nav-right.open .nav-links .nav-link:nth-child(10){transition-delay:0.68s}
+
+body.menu-open .nav-right{ }
+.nav-right.open .nav-link{opacity:1; transform:none}
+.nav-foot{margin-top:2.6rem; position:relative; z-index:2; color:var(--text-mid);
+  font-size:.95rem; opacity:0; transition:opacity .6s ease .5s}
+.nav-right.open .nav-foot{opacity:1}
+.nav-foot a{color:var(--accent)} .nav-foot .lbl{color:var(--text-dim); letter-spacing:.16em;
+  text-transform:uppercase; font-size:.66rem; font-family:"Cinzel",serif; display:block; margin-bottom:.3rem}
+
+/* ---------- page transition cover ---------- */
+.tx-cover{position:fixed; inset:0; z-index:9998; pointer-events:none; opacity:0;
+  transition:opacity .35s ease; display:grid; place-items:center; overflow:hidden}
+.tx-cover.show{opacity:1; pointer-events:all}
+.tx-box{position:absolute; top:50%; left:50%; width:140vmax; height:140vmax;
+  background:radial-gradient(circle at 50% 40%, #0c140a, #010101 60%);
+  transform:translate(-50%,-50%) scale(0); border-radius:50%;
+  transition:transform .7s cubic-bezier(.65,0,.35,1)}
+.tx-cover.full .tx-box{transform:translate(-50%,-50%) scale(1)}
+.tx-inner{position:relative; z-index:2; text-align:center}
+.tx-seal{width:54px; height:54px; margin:0 auto 1.2rem; border:1.4px solid var(--accent);
+  border-radius:50%; display:grid; place-items:center; color:var(--accent);
+  font-family:"Pirata One",serif; font-size:1.5rem; opacity:0; transform:translateY(10px);
+  transition:opacity .5s ease .15s, transform .5s ease .15s}
+.tx-label{font-family:"Cinzel",serif; font-size:clamp(1.6rem,6vw,3rem); color:var(--bone);
+  letter-spacing:.16em; opacity:0; transform:translateY(10px);
+  transition:opacity .5s ease .2s, transform .5s ease .2s}
+.tx-cover.full .tx-label,.tx-cover.full .tx-seal{opacity:1; transform:translateY(0)}
+.tx-bar{width:180px; height:1.5px; margin:1.4rem auto 0; background:var(--border); position:relative}
+.tx-bar span{position:absolute; left:0; top:0; bottom:0; width:0%; background:var(--accent);
+  transition:width .35s ease}
+
+/* ---------- intro loader ---------- */
+.intro{position:fixed; inset:0; z-index:9999; background:var(--bg-deep);
+  display:grid; place-items:center; transition:transform .9s cubic-bezier(.7,0,.2,1), opacity .6s}
+.intro.done{transform:scale(1.15); opacity:0; pointer-events:none}
+.intro-frame{position:relative; padding:2.8rem 3.4rem; border:1px solid var(--border); text-align:center}
+.intro-frame .brand{font-size:2.4rem; margin-bottom:.4rem}
+.intro-tag{color:var(--text-dim); font-size:.74rem; letter-spacing:.34em; text-transform:uppercase;
+  font-family:"Cinzel",serif}
+.intro-count{font-family:"Cinzel",serif; font-size:1rem; color:var(--accent); margin-top:1.4rem;
+  letter-spacing:.2em}
+
+/* ---------- scroll reveal ---------- */
+.reveal{opacity:0; transform:translateY(26px); transition:opacity 1s ease, transform 1s ease}
+.reveal.on{opacity:1; transform:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative; min-height:100vh; display:flex; align-items:flex-end;
+  overflow:hidden; background:var(--bg-deep)}
+.hero-media{position:absolute; inset:0; z-index:0}
+.hero-media img{width:100%; height:100%; object-fit:cover; filter:brightness(.5) saturate(.85);
+  animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero-media::after{content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(1,1,1,.35), rgba(8,14,2,.55) 60%, var(--bg) 100%)}
+.hero-inner{position:relative; z-index:3; padding-bottom:6rem}
+.hero h1{font-size:clamp(2.6rem,9vw,6.4rem); letter-spacing:.02em; color:var(--bone)}
+.hero .tagline{color:var(--text-mid); max-width:46ch; margin-top:1.2rem; font-size:1.18rem}
+.hero .brand-mark{font-family:"Pirata One",serif; color:var(--accent); font-size:1rem;
+  letter-spacing:.28em; text-transform:uppercase; margin-bottom:1.2rem; display:block}
+.scrollcue{position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:3;
+  color:var(--text-dim); font-family:"Cinzel",serif; font-size:.64rem; letter-spacing:.3em;
+  text-transform:uppercase; animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+/* ---------- page hero (inner pages) ---------- */
+.phero{position:relative; padding:9rem 0 3.2rem; overflow:hidden}
+.phero .back{color:var(--text-dim); font-family:"Cinzel",serif; font-size:.7rem;
+  letter-spacing:.2em; text-transform:uppercase; display:inline-block; margin-bottom:1.4rem}
+.phero .back:hover{color:var(--accent)}
+.phero h1{font-size:clamp(2.2rem,7vw,4.4rem); margin:.5rem 0 1rem; color:var(--bone)}
+
+/* ---------- section ---------- */
+.section{position:relative; padding:5.5rem 0}
+.section-head{margin-bottom:2.8rem}
+.section-head h2{font-size:clamp(1.8rem,4.5vw,3rem); margin:.5rem 0}
+
+/* ---------- collection cards ---------- */
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+.card{position:relative; border:1px solid var(--border); border-radius:11px; overflow:hidden;
+  background:var(--panel); cursor:pointer}
+.card .thumb{aspect-ratio:4/5; overflow:hidden; background:var(--panel-2)}
+.card .thumb img{width:100%; height:100%; object-fit:cover;
+  transition:transform .8s cubic-bezier(.2,.7,.2,1), filter .5s; filter:brightness(.82) saturate(.9)}
+.card:hover .thumb img{transform:scale(1.06); filter:brightness(1) saturate(1)}
+.card .body{padding:1.3rem 1.4rem 1.6rem}
+.card .body h3{font-size:1.35rem; color:var(--bone)}
+.card .body .k{font-family:"Cinzel",serif; font-size:.64rem; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--accent-dim)}
+.card .body p{color:var(--text-mid); font-size:.98rem; margin:.5rem 0 0}
+.card::after{content:""; position:absolute; inset:0; border-radius:11px;
+  box-shadow:0 0 0 0 rgba(168,194,154,0); transition:box-shadow .5s; pointer-events:none}
+.card:hover::after{box-shadow:0 0 34px -6px rgba(168,194,154,.28)}
+
+/* ---------- masonry gallery ---------- */
+.ph-gallery{columns:3; column-gap:18px; padding:0 0 2rem; max-width:var(--maxw); margin:0 auto}
+.ph-item{break-inside:avoid; margin-bottom:18px; position:relative; overflow:hidden;
+  border-radius:9px; cursor:pointer; background:var(--panel); border:1px solid var(--border)}
+.ph-item img{width:100%; display:block;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1), filter .4s; filter:brightness(.9)}
+.ph-item:hover img{transform:scale(1.05); filter:brightness(1.04)}
+.ph-cap{position:absolute; left:0; right:0; bottom:0; padding:1.4rem 1.1rem .9rem;
+  background:linear-gradient(0deg, rgba(1,1,1,.85), transparent);
+  opacity:0; transform:translateY(8px); transition:.45s}
+.ph-item:hover .ph-cap{opacity:1; transform:none}
+.ph-cap .t{font-family:"Cinzel",serif; font-size:.92rem; color:var(--bone)}
+.ph-cap .m{font-style:italic; color:var(--text-mid); font-size:.82rem}
+@media(max-width:1000px){.ph-gallery{columns:2}}
+@media(max-width:600px){.ph-gallery{columns:1}}
+
+/* ---------- alternating feature rows ---------- */
+.work{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--border);
+  min-height:480px; align-items:stretch}
+.work .w-media{overflow:hidden; background:var(--panel-2)}
+.work .w-media img{width:100%; height:100%; object-fit:cover; filter:brightness(.86)}
+.work .w-text{padding:3.4rem; display:flex; flex-direction:column; justify-content:center}
+.work .w-num{font-style:italic; color:var(--accent-dim); font-size:1rem}
+.work .w-tag{font-family:"Cinzel",serif; font-size:.64rem; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--accent); margin:.9rem 0 .5rem}
+.work .w-text h3{font-size:1.9rem; color:var(--bone); margin-bottom:.8rem}
+.work .w-text p{color:var(--text-mid)}
+.work.flip .w-media{order:2}
+@media(max-width:900px){.work{grid-template-columns:1fr; min-height:unset}
+  .work.flip .w-media{order:0} .work .w-text{padding:2.4rem}}
+
+/* ---------- process steps ---------- */
+.steps{display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem}
+@media(max-width:800px){.steps{grid-template-columns:1fr 1fr}}
+.step{border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--panel)}
+.step .s-img{aspect-ratio:1; background:var(--panel-2); overflow:hidden}
+.step .s-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+.step .s-b{padding:1rem 1.1rem 1.2rem}
+.step .s-n{font-style:italic; color:var(--accent-dim)}
+.step h3{font-size:1.05rem; color:var(--bone); margin:.3rem 0 .3rem}
+.step p{font-size:.9rem; color:var(--text-mid); margin:0}
+
+/* ---------- stat count ---------- */
+.stats{display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; text-align:center}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.stat{border:1px solid var(--border); border-radius:10px; padding:2.4rem 1rem; position:relative}
+.stat .n{font-family:"Cinzel",serif; font-size:2.8rem; color:var(--accent)}
+.stat .l{font-family:"Cinzel",serif; font-size:.64rem; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--text-mid); margin-top:.4rem}
+
+/* ---------- lightbox ---------- */
+.lightbox{position:fixed; inset:0; z-index:9990; background:rgba(1,1,1,.96);
+  display:none; align-items:center; justify-content:center; flex-direction:column; padding:2rem}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95%; max-height:82vh; object-fit:contain; border-radius:6px;
+  box-shadow:0 0 60px -10px rgba(168,194,154,.25)}
+.lb-meta{margin-top:1.1rem; text-align:center; color:var(--text-mid); font-style:italic}
+.lb-meta .t{font-family:"Cinzel",serif; font-style:normal; color:var(--bone);
+  letter-spacing:.1em; font-size:1rem; margin-bottom:.2rem}
+.lb-close{position:absolute; top:1.4rem; right:1.8rem; background:none; border:none; cursor:pointer;
+  width:44px; height:44px; border:1.4px solid var(--border); border-radius:50%; color:var(--text);
+  font-size:1.3rem; display:grid; place-items:center}
+.lb-close:hover{border-color:var(--accent); color:var(--accent)}
+.lb-nav{position:absolute; top:50%; transform:translateY(-50%); background:none; border:none;
+  cursor:pointer; color:var(--text-mid); font-family:"Cinzel",serif; font-size:2rem; padding:1rem}
+.lb-nav:hover{color:var(--accent)} .lb-prev{left:1rem} .lb-next{right:1rem}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:center}
+@media(max-width:850px){.contact-grid{grid-template-columns:1fr}}
+.contact-card{border:1px solid var(--border); border-radius:12px; padding:2.6rem; background:var(--panel);
+  position:relative}
+.contact-line{display:block; margin:.4rem 0}
+.contact-line .lbl{font-family:"Cinzel",serif; font-size:.62rem; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--text-dim); display:block}
+.contact-line a{font-size:1.3rem; color:var(--bone)} .contact-line a:hover{color:var(--accent)}
+.seal-big{width:120px; height:120px; margin:0 auto 1.4rem; border:1.6px solid var(--accent);
+  border-radius:50%; display:grid; place-items:center; color:var(--accent);
+  font-family:"Pirata One",serif; font-size:2.6rem; position:relative}
+.seal-big::before{content:""; position:absolute; inset:8px; border:1px solid var(--border); border-radius:50%}
+
+/* ---------- prose (legal / about) ---------- */
+.prose{max-width:70ch} .prose h2{font-size:1.5rem; color:var(--bone); margin:2.2rem 0 .6rem}
+.prose p{color:var(--text-mid); margin:.8rem 0} .prose a{color:var(--accent)}
+.prose ul{color:var(--text-mid)}
+
+/* ---------- footer ---------- */
+.footer{border-top:1px solid var(--border); padding:3.4rem 0 2.4rem; margin-top:2rem;
+  position:relative; overflow:hidden}
+.footer .f-top{display:flex; justify-content:space-between; gap:2rem; flex-wrap:wrap;
+  align-items:flex-start}
+.footer .brand{font-size:1.7rem}
+.f-links{display:flex; flex-wrap:wrap; gap:1.1rem}
+.f-links a{font-family:"Cinzel",serif; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--text-mid)} .f-links a:hover{color:var(--accent)}
+.f-bottom{margin-top:2.2rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+  color:var(--text-dim); font-size:.82rem}
+.f-bottom a{color:var(--accent)}
+
+/* ---------- misc buttons ---------- */
+.btn{display:inline-flex; align-items:center; gap:.7rem; font-family:"Cinzel",serif;
+  font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bg-deep);
+  background:var(--accent); padding:.95rem 1.7rem; border-radius:40px; border:none; cursor:pointer;
+  transition:background .3s, transform .3s}
+.btn:hover{background:var(--bone); transform:translateY(-2px)}
+.btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-dim)}
+.btn.ghost:hover{background:rgba(168,194,154,.08); color:var(--bone)}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important}
+  .reveal{opacity:1 !important; transform:none !important}
+  .tx-box,.tx-label,.tx-seal,.tx-bar span,.hero-media img{transition:none !important}
+}
+@media(max-width:640px){.wrap{padding:0 1.4rem}.topbar{padding:1rem 1.4rem}
+  .work .w-text{padding:2rem 1.4rem}}
+</style>
+</head>
+<body>
+
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="index.html">Topaz<span>&#10022;</span>Hachet</a>
+    <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span></button>
+  </header>
+
+  <div class="nav-backdrop" data-close></div>
+  <nav class="nav-right" id="navRight" aria-label="Main menu">
+    <div class="watermark" aria-hidden="true">H</div>
+    <button class="menu-close" data-close aria-label="Close menu">
+      <span class="seal">&times;</span> CLOSE</button>
+    <ul class="nav-links">
+      <li class="nav-link"><span class="num">I</span><a href="index.html">Home</a></li>
+<li class="nav-link"><span class="num">II</span><a href="gallery.html">Gallery</a></li>
+<li class="nav-link"><span class="num">III</span><a href="illustration.html">Illustration</a></li>
+<li class="nav-link active"><span class="num">IV</span><a href="paintings.html">Paintings</a></li>
+<li class="nav-link"><span class="num">V</span><a href="digital.html">Digital</a></li>
+<li class="nav-link"><span class="num">VI</span><a href="process.html">Process</a></li>
+<li class="nav-link"><span class="num">VII</span><a href="about.html">About</a></li>
+<li class="nav-link"><span class="num">VIII</span><a href="shop.html">Shop</a></li>
+<li class="nav-link"><span class="num">IX</span><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-foot">
+      <span class="lbl">Get in touch</span>
+      <a href="mailto:hello@topazhachet.com">hello@topazhachet.com</a><br>
+      <a href="https://www.instagram.com/topaz.hachet/" target="_blank" rel="noopener">Instagram &mdash; @topaz.hachet</a>
+    </div>
+  </nav>
+<div id="pagewrap" class="page-tx" data-page="PAINTINGS">
+
+  <section class="phero"><div class="wrap"><svg class="flourish fl-tl" viewBox="0 0 26 26"><path d="M2 12 V2 H12 M2 6 Q6 6 6 2 M6 8 Q10 8 10 4"/></svg><svg class="flourish fl-tr" viewBox="0 0 26 26"><path d="M2 12 V2 H12 M2 6 Q6 6 6 2 M6 8 Q10 8 10 4"/></svg><svg class="flourish fl-bl" viewBox="0 0 26 26"><path d="M2 12 V2 H12 M2 6 Q6 6 6 2 M6 8 Q10 8 10 4"/></svg><svg class="flourish fl-br" viewBox="0 0 26 26"><path d="M2 12 V2 H12 M2 6 Q6 6 6 2 M6 8 Q10 8 10 4"/></svg>
+    <div class="glow" style="width:460px;height:460px;top:-140px;left:-100px"></div>
+    <a class="back" href="index.html">&larr; Home</a>
+    <span class="eyebrow">II · Pigment</span>
+    <h1>Paintings</h1>
+    <p class="lede">Oil and cold-pressed patience. Thin glazes stacked until the green reads as depth rather than colour — closer to weather than to paint.</p>
+  </div></section>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <div class="ph-gallery">
+<figure class="ph-item" data-lb="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTAwMCIgdmlld0JveD0iMCAwIDgwMCAxMDAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI0OCUiIGN5PSI0NiUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iaHNsKDk4LDIyJSwxOCUpIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9ImhzbCg5OCwzMCUsNiUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSIxMDAwIiBmaWxsPSJ1cmwoI2cpIi8+PGNpcmNsZSBjeD0iNTYwIiBjeT0iMjgwIiByPSIxMDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iaHNsKDk4LDMwJSw2MCUpIiBzdHJva2Utb3BhY2l0eT0iMC4xOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZmlsbD0iaHNsKDk4LDIwJSw3MiUpIiBmaWxsLW9wYWNpdHk9IjAuMzUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXN0eWxlPSJpdGFsaWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZFTi1MSUdIVDwvdGV4dD48L3N2Zz4=" data-title="Fen-Light"
+      data-sub="Oil, 2025" data-alt="Fen-Light — Oil, 2025 by Topaz Hachet">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTAwMCIgdmlld0JveD0iMCAwIDgwMCAxMDAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI0OCUiIGN5PSI0NiUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iaHNsKDk4LDIyJSwxOCUpIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9ImhzbCg5OCwzMCUsNiUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSIxMDAwIiBmaWxsPSJ1cmwoI2cpIi8+PGNpcmNsZSBjeD0iNTYwIiBjeT0iMjgwIiByPSIxMDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iaHNsKDk4LDMwJSw2MCUpIiBzdHJva2Utb3BhY2l0eT0iMC4xOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZmlsbD0iaHNsKDk4LDIwJSw3MiUpIiBmaWxsLW9wYWNpdHk9IjAuMzUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXN0eWxlPSJpdGFsaWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZFTi1MSUdIVDwvdGV4dD48L3N2Zz4=" loading="lazy" alt="Fen-Light — Oil, 2025 by Topaz Hachet">
+      <figcaption class="ph-cap"><div class="t">Fen-Light</div><div class="m">Oil, 2025</div></figcaption>
+    </figure>
+<figure class="ph-item" data-lb="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTIwMCIgdmlld0JveD0iMCAwIDgwMCAxMjAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI2MCUiIGN5PSI0NyUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iaHNsKDExMCwyMiUsMTglKSIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSJoc2woMTEwLDMwJSwxMCUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSIxMjAwIiBmaWxsPSJ1cmwoI2cpIi8+PGNpcmNsZSBjeD0iNTYwIiBjeT0iMzM2IiByPSIxMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iaHNsKDExMCwzMCUsNjAlKSIgc3Ryb2tlLW9wYWNpdHk9IjAuMTgiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9ImhzbCgxMTAsMjAlLDcyJSkiIGZpbGwtb3BhY2l0eT0iMC4zNSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMzAiIGZvbnQtc3R5bGU9Iml0YWxpYyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QlJBTUJMRSBTQUlOVDwvdGV4dD48L3N2Zz4=" data-title="Bramble Saint"
+      data-sub="Oil, 2024" data-alt="Bramble Saint — Oil, 2024 by Topaz Hachet">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTIwMCIgdmlld0JveD0iMCAwIDgwMCAxMjAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI2MCUiIGN5PSI0NyUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iaHNsKDExMCwyMiUsMTglKSIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSJoc2woMTEwLDMwJSwxMCUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSIxMjAwIiBmaWxsPSJ1cmwoI2cpIi8+PGNpcmNsZSBjeD0iNTYwIiBjeT0iMzM2IiByPSIxMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iaHNsKDExMCwzMCUsNjAlKSIgc3Ryb2tlLW9wYWNpdHk9IjAuMTgiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9ImhzbCgxMTAsMjAlLDcyJSkiIGZpbGwtb3BhY2l0eT0iMC4zNSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMzAiIGZvbnQtc3R5bGU9Iml0YWxpYyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QlJBTUJMRSBTQUlOVDwvdGV4dD48L3N2Zz4=" loading="lazy" alt="Bramble Saint — Oil, 2024 by Topaz Hachet">
+      <figcaption class="ph-cap"><div class="t">Bramble Saint</div><div class="m">Oil, 2024</div></figcaption>
+    </figure>
+<figure class="ph-item" data-lb="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iODAwIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJnIiBjeD0iNjclIiBjeT0iNDglIiByPSI4MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9ImhzbCgxMTcsMjIlLDI1JSkiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iaHNsKDExNywzMCUsOSUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSI1NjAiIGN5PSIyMjQiIHI9IjEyNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJoc2woMTE3LDMwJSw2MCUpIiBzdHJva2Utb3BhY2l0eT0iMC4xOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZmlsbD0iaHNsKDExNywyMCUsNzIlKSIgZmlsbC1vcGFjaXR5PSIwLjM1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC1zdHlsZT0iaXRhbGljIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HUkVFTiBDSEFQRUw8L3RleHQ+PC9zdmc+" data-title="Green Chapel"
+      data-sub="Oil, 2023" data-alt="Green Chapel — Oil, 2023 by Topaz Hachet">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iODAwIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJnIiBjeD0iNjclIiBjeT0iNDglIiByPSI4MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9ImhzbCgxMTcsMjIlLDI1JSkiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iaHNsKDExNywzMCUsOSUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSI1NjAiIGN5PSIyMjQiIHI9IjEyNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJoc2woMTE3LDMwJSw2MCUpIiBzdHJva2Utb3BhY2l0eT0iMC4xOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZmlsbD0iaHNsKDExNywyMCUsNzIlKSIgZmlsbC1vcGFjaXR5PSIwLjM1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC1zdHlsZT0iaXRhbGljIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HUkVFTiBDSEFQRUw8L3RleHQ+PC9zdmc+" loading="lazy" alt="Green Chapel — Oil, 2023 by Topaz Hachet">
+      <figcaption class="ph-cap"><div class="t">Green Chapel</div><div class="m">Oil, 2023</div></figcaption>
+    </figure>
+<figure class="ph-item" data-lb="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iODAwIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJnIiBjeD0iNzMlIiBjeT0iNjQlIiByPSI4MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9ImhzbCgxMjMsMjIlLDE5JSkiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iaHNsKDEyMywzMCUsNyUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSI1NjAiIGN5PSIyMjQiIHI9IjkzIiBmaWxsPSJub25lIiBzdHJva2U9ImhzbCgxMjMsMzAlLDYwJSkiIHN0cm9rZS1vcGFjaXR5PSIwLjE4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSJoc2woMTIzLDIwJSw3MiUpIiBmaWxsLW9wYWNpdHk9IjAuMzUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXN0eWxlPSJpdGFsaWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPldBWCAmYW1wOyBXQU5FPC90ZXh0Pjwvc3ZnPg==" data-title="Wax & Wane"
+      data-sub="Oil on panel, 2025" data-alt="Wax & Wane — Oil on panel, 2025 by Topaz Hachet">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iODAwIiB2aWV3Qm94PSIwIDAgODAwIDgwMCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJnIiBjeD0iNzMlIiBjeT0iNjQlIiByPSI4MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9ImhzbCgxMjMsMjIlLDE5JSkiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iaHNsKDEyMywzMCUsNyUpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDEwMTAxIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSI1NjAiIGN5PSIyMjQiIHI9IjkzIiBmaWxsPSJub25lIiBzdHJva2U9ImhzbCgxMjMsMzAlLDYwJSkiIHN0cm9rZS1vcGFjaXR5PSIwLjE4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSJoc2woMTIzLDIwJSw3MiUpIiBmaWxsLW9wYWNpdHk9IjAuMzUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXN0eWxlPSJpdGFsaWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPldBWCAmYW1wOyBXQU5FPC90ZXh0Pjwvc3ZnPg==" loading="lazy" alt="Wax & Wane — Oil on panel, 2025 by Topaz Hachet">
+      <figcaption class="ph-cap"><div class="t">Wax & Wane</div><div class="m">Oil on panel, 2025</div></figcaption>
+    </figure>
+<figure class="ph-item" data-lb="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTAwMCIgdmlld0JveD0iMCAwIDgwMCAxMDAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSIyNiUiIGN5PSI2NSUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iaHNsKDk2LDIyJSwyMCUpIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9ImhzbCg5NiwzMCUsMTIlKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAxMDEwMSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjU2MCIgY3k9IjI4MCIgcj0iMTA2IiBmaWxsPSJub25lIiBzdHJva2U9ImhzbCg5NiwzMCUsNjAlKSIgc3Ryb2tlLW9wYWNpdHk9IjAuMTgiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9ImhzbCg5NiwyMCUsNzIlKSIgZmlsbC1vcGFjaXR5PSIwLjM1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC1zdHlsZT0iaXRhbGljIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NQVJTSCBWRVNQRVJTPC90ZXh0Pjwvc3ZnPg==" data-title="Marsh Vespers"
+      data-sub="Oil, 2024" data-alt="Marsh Vespers — Oil, 2024 by Topaz Hachet">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTAwMCIgdmlld0JveD0iMCAwIDgwMCAxMDAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSIyNiUiIGN5PSI2NSUiIHI9IjgwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iaHNsKDk2LDIyJSwyMCUpIi8+PHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9ImhzbCg5NiwzMCUsMTIlKSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAxMDEwMSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjU2MCIgY3k9IjI4MCIgcj0iMTA2IiBmaWxsPSJub25lIiBzdHJva2U9ImhzbCg5NiwzMCUsNjAlKSIgc3Ryb2tlLW9wYWNpdHk9IjAuMTgiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9ImhzbCg5NiwyMCUsNzIlKSIgZmlsbC1vcGFjaXR5PSIwLjM1IiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC1zdHlsZT0iaXRhbGljIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NQVJTSCBWRVNQRVJTPC90ZXh0Pjwvc3ZnPg==" loading="lazy" alt="Marsh Vespers — Oil, 2024 by Topaz Hachet">
+      <figcaption class="ph-cap"><div class="t">Marsh Vespers</div><div class="m">Oil, 2024</div></figcaption>
+    </figure>
+</div>
+  </div></section>
+
+
+  <footer class="footer">
+    <div class="watermark" aria-hidden="true">&#9790;</div>
+    <div class="wrap" style="position:relative;z-index:2">
+      <div class="f-top">
+        <div>
+          <a class="brand" href="index.html">Topaz<span>&#10022;</span>Hachet</a>
+          <p class="lede" style="font-size:.95rem;margin-top:.7rem;max-width:34ch">
+            Greenish-gothic illustration, painting &amp; digital art.<br>Miami, FL</p>
+        </div>
+        <div class="f-links">
+          <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="illustration.html">Illustration</a>
+      <a href="paintings.html">Paintings</a>
+      <a href="digital.html">Digital</a>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+        </div>
+      </div>
+      <div class="f-bottom">
+        <span>&copy; 2026 Topaz Hachet &mdash; all works are the artist&rsquo;s own, and may not be reproduced without permission.</span>
+        <span><a href="mailto:hello@topazhachet.com">hello@topazhachet.com</a> &middot; <a href="https://www.instagram.com/topaz.hachet/" target="_blank" rel="noopener">@topaz.hachet</a></span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+    <button class="lb-close" data-lb-close aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" data-lb-prev aria-label="Previous">&#10094;</button>
+    <img id="lb-img" alt="">
+    <button class="lb-nav lb-next" data-lb-next aria-label="Next">&#10095;</button>
+    <div class="lb-meta"><div class="t" id="lb-title"></div><div id="lb-sub"></div></div>
+  </div>
+
+<script>
+(function(){
+  /* ---- menu toggle ---- */
+  var hamb=document.getElementById('hamb'), navRight=document.getElementById('navRight');
+  function openMenu(){ document.body.classList.add('menu-open'); navRight.classList.add('open');
+    document.body.style.overflow='hidden'; hamb.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ document.body.classList.remove('menu-open'); navRight.classList.remove('open');
+    document.body.style.overflow=''; hamb.setAttribute('aria-expanded','false'); }
+  hamb && hamb.addEventListener('click', function(){
+    document.body.classList.contains('menu-open')?closeMenu():openMenu(); });
+  document.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click',closeMenu); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+
+  /* ---- top bar scroll state ---- */
+  var tb=document.getElementById('topbar');
+  function onScroll(){ if(!tb) return; tb.classList.toggle('scrolled', window.scrollY>40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* ---- scroll reveal ---- */
+  var ro=new IntersectionObserver(function(e){ e.forEach(function(x){
+    if(x.isIntersecting){ x.target.classList.add('on'); ro.unobserve(x.target); } }); },
+    {threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
+
+  /* ---- count-up stats ---- */
+  var so=new IntersectionObserver(function(e){ e.forEach(function(x){
+    if(x.isIntersecting){ var el=x.target, target=+el.dataset.count, cur=0,
+      step=Math.max(1,Math.round(target/60));
+      var t=setInterval(function(){ cur+=step; if(cur>=target){cur=target;clearInterval(t);}
+        el.textContent=cur+(el.dataset.suffix||''); },22); so.unobserve(el); } }); },
+    {threshold:0.4});
+  document.querySelectorAll('[data-count]').forEach(function(el){ so.observe(el); });
+
+  /* ---- page transition engine ---- */
+  var PAGE_LABELS={"home": "HOME", "gallery": "GALLERY", "illustration": "ILLUSTRATION", "paintings": "PAINTINGS", "digital": "DIGITAL", "process": "PROCESS", "about": "ABOUT", "shop": "SHOP", "contact": "CONTACT", "privacy": "PRIVACY", "terms": "TERMS", "thanks": "THANKS"};
+  function labelFor(href){
+    try{ var slug=href.split('/').pop().replace('.html','').replace('index','home')||'home';
+      return PAGE_LABELS[slug]||''; }catch(e){ return ''; }   /* safe empty fallback */
+  }
+  var wrap=document.getElementById('pagewrap');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(wrap && !reduce){
+    var cover=document.createElement('div'); cover.className='tx-cover';
+    cover.innerHTML='<div class="tx-box"></div><div class="tx-inner">'+
+      '<div class="tx-seal">&#10022;</div><div class="tx-label"></div>'+
+      '<div class="tx-bar"><span></span></div></div>';
+    document.body.appendChild(cover);
+    var box=cover, label=cover.querySelector('.tx-label'), bar=cover.querySelector('.tx-bar span');
+    /* incoming reveal */
+    if(sessionStorage.getItem('th_nav')==='1'){
+      cover.classList.add('show','full'); label.textContent=wrap.getAttribute('data-page')||'';
+      bar.style.width='100%';
+      requestAnimationFrame(function(){ setTimeout(function(){
+        cover.classList.remove('full');
+        setTimeout(function(){ cover.classList.remove('show'); bar.style.width='0%'; },380);
+      },120); });
+    }
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var href=a.getAttribute('href');
+      if(!href||href.charAt(0)==='#'||a.target==='_blank'||href.indexOf('mailto:')===0||
+         href.indexOf('http')===0) return;
+      a.addEventListener('click', function(ev){
+        ev.preventDefault();
+        label.textContent=labelFor(href);
+        cover.classList.add('show'); bar.style.width='50%';
+        requestAnimationFrame(function(){ cover.classList.add('full'); });
+        sessionStorage.setItem('th_nav','1');
+        setTimeout(function(){ bar.style.width='100%'; },420);
+        setTimeout(function(){ window.location.href=href; },760);
+      });
+    });
+  } else if(wrap && reduce){
+    /* mark internal nav so intro is skipped, but no animation */
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var href=a.getAttribute('href');
+      if(href && href.indexOf('http')!==0 && href.indexOf('mailto:')!==0 && href.charAt(0)!=='#')
+        a.addEventListener('click',function(){ sessionStorage.setItem('th_nav','1'); });
+    });
+  }
+
+  /* ---- lightbox ---- */
+  var lb=document.getElementById('lightbox');
+  if(lb){
+    var items=[].slice.call(document.querySelectorAll('[data-lb]'));
+    var idx=0, img=document.getElementById('lb-img'),
+        lt=document.getElementById('lb-title'), ls=document.getElementById('lb-sub');
+    function show(i){ idx=(i+items.length)%items.length; var el=items[idx];
+      img.src=el.getAttribute('data-lb'); img.alt=el.getAttribute('data-alt')||'';
+      lt.textContent=el.getAttribute('data-title')||''; ls.textContent=el.getAttribute('data-sub')||''; }
+    function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+    function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+    items.forEach(function(el,i){ el.addEventListener('click',function(){ open(i); }); });
+    lb.querySelector('[data-lb-close]').addEventListener('click',close);
+    lb.querySelector('[data-lb-prev]').addEventListener('click',function(){ show(idx-1); });
+    lb.querySelector('[data-lb-next]').addEventListener('click',function(){ show(idx+1); });
+    lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+    document.addEventListener('keydown',function(e){
+      if(!lb.classList.contains('open')) return;
+      if(e.key==='Escape') close();
+      if(e.key==='ArrowLeft') show(idx-1);
+      if(e.key==='ArrowRight') show(idx+1);
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
