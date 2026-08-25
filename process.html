@@ -198,6 +198,11 @@ body.menu-open .nav-right{ }
   box-shadow:0 0 0 0 rgba(168,194,154,0); transition:box-shadow .5s; pointer-events:none}
 .card:hover::after{box-shadow:0 0 34px -6px rgba(168,194,154,.28)}
 
+/* ---------- video cards (process timelapse) ---------- */
+.vid-card{margin:0; border:1px solid var(--border); border-radius:11px; overflow:hidden;
+  background:var(--panel-2)}
+.vid-card video{display:block; width:100%; aspect-ratio:1; object-fit:cover; background:var(--bg-deep)}
+
 /* ---------- masonry gallery ---------- */
 .ph-gallery{columns:3; column-gap:18px; padding:0 0 2rem; max-width:var(--maxw); margin:0 auto}
 .ph-item{break-inside:avoid; margin-bottom:18px; position:relative; overflow:hidden;
@@ -302,6 +307,8 @@ body.menu-open .nav-right{ }
   font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bg-deep);
   background:var(--accent); padding:.95rem 1.7rem; border-radius:40px; border:none; cursor:pointer;
   transition:background .3s, transform .3s}
+.prose a.btn{color:var(--bg-deep)}
+.prose a.btn.ghost{color:var(--accent)}
 .btn:hover{background:var(--bone); transform:translateY(-2px)}
 .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-dim)}
 .btn.ghost:hover{background:rgba(168,194,154,.08); color:var(--bone)}
@@ -362,37 +369,27 @@ body.menu-open .nav-right{ }
     <p>I started drawing at twelve because I had a head full of imagination and wanted to put it into
       something real. It began as doodles in school. At sixteen I got my first iPad and started
       drawing in Autodesk Sketchbook, and around 2024 I moved over to Procreate, which is where I
-      work now. Eleven years in, the vampire-and-witchy world I draw is still the thing I most want
-      to make.</p>
+      work now. Eleven years in, drawing characters — from moody portraits to my vampire-and-witchy
+      side — is still the thing I most want to do.</p>
   </div></section>
 
   <section class="section" style="background:var(--bg-deep)"><div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow">Sketch to finish</span>
-      <h2>From rough to rendered</h2>
-      <p class="lede">The looser work and the finished paintings are two ends of the same process.
-        Tap to enlarge.</p></div>
-    <div class="ph-gallery">
-<figure class="ph-item" data-lb="img/sketch-eclipsa.jpg" data-title="Eclipsa — colour sketch"
-      data-sub="Sketch" data-alt="Loose colour sketch of a three-eyed horned character">
-      <img src="img/sketch-eclipsa.jpg" loading="lazy" alt="Loose colour sketch of a three-eyed horned character">
-      <figcaption class="ph-cap"><div class="t">Eclipsa — colour sketch</div><div class="m">Sketch</div></figcaption>
-    </figure>
-<figure class="ph-item" data-lb="img/sketch-inky.jpg" data-title="Spade Tears — ink sketch"
-      data-sub="Sketch" data-alt="Inky black-and-white sketch of a horned character with spade tear marks">
-      <img src="img/sketch-inky.jpg" loading="lazy" alt="Inky black-and-white sketch of a horned character with spade tear marks">
-      <figcaption class="ph-cap"><div class="t">Spade Tears — ink sketch</div><div class="m">Sketch</div></figcaption>
-    </figure>
-<figure class="ph-item" data-lb="img/glasses-portrait.jpg" data-title="Vesper — finished"
-      data-sub="Digital" data-alt="Finished grey-skinned portrait with glowing glasses">
-      <img src="img/glasses-portrait.jpg" loading="lazy" alt="Finished grey-skinned portrait with glowing glasses">
-      <figcaption class="ph-cap"><div class="t">Vesper — finished</div><div class="m">Digital</div></figcaption>
-    </figure>
-<figure class="ph-item" data-lb="img/crying-portrait.jpg" data-title="Undertow — finished"
-      data-sub="Digital" data-alt="Finished moody greyscale portrait in low light">
-      <img src="img/crying-portrait.jpg" loading="lazy" alt="Finished moody greyscale portrait in low light">
-      <figcaption class="ph-cap"><div class="t">Undertow — finished</div><div class="m">Digital</div></figcaption>
-    </figure>
-</div>
+    <div class="section-head reveal"><span class="eyebrow">Timelapse</span>
+      <h2>Watch a piece happen</h2>
+      <p class="lede">Two recordings, sketch to finish. No sound &mdash; just the drawing coming
+        together.</p></div>
+    <div class="cards" style="grid-template-columns:1fr 1fr">
+      <figure class="vid-card reveal">
+        <video src="vid/process-zombite.mp4" poster="vid/process-zombite.jpg"
+          controls preload="none" playsinline loop muted
+          aria-label="Timelapse of a seated gothic character, sketch to finish"></video>
+      </figure>
+      <figure class="vid-card reveal">
+        <video src="vid/process-twin.mp4" poster="vid/process-twin.jpg"
+          controls preload="none" playsinline loop muted
+          aria-label="Timelapse of a two-figure profile piece, rough to rendered"></video>
+      </figure>
+    </div>
   </div></section>
 
   <section class="section"><div class="wrap prose reveal">
@@ -400,8 +397,8 @@ body.menu-open .nav-right{ }
     <h2 style="margin-top:.6rem">What&rsquo;s on the desk</h2>
     <p>An iPad and Procreate for the digital work, and pen and paper when I&rsquo;m drawing live at
       the market. Autodesk Sketchbook is where I learned; Procreate is where I live now.</p>
-    <p class="serif-i" style="color:var(--text-dim)">Want to add favourite brushes, a timelapse, or a
-      step-by-step of one piece here later? There&rsquo;s room &mdash; just send the images.</p>
+    <p class="serif-i" style="color:var(--text-dim)">Want to add favourite brushes or a step-by-step
+      of one piece here later? There&rsquo;s room &mdash; just send the images or clips.</p>
   </div></section>
 
 

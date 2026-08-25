@@ -198,6 +198,11 @@ body.menu-open .nav-right{ }
   box-shadow:0 0 0 0 rgba(168,194,154,0); transition:box-shadow .5s; pointer-events:none}
 .card:hover::after{box-shadow:0 0 34px -6px rgba(168,194,154,.28)}
 
+/* ---------- video cards (process timelapse) ---------- */
+.vid-card{margin:0; border:1px solid var(--border); border-radius:11px; overflow:hidden;
+  background:var(--panel-2)}
+.vid-card video{display:block; width:100%; aspect-ratio:1; object-fit:cover; background:var(--bg-deep)}
+
 /* ---------- masonry gallery ---------- */
 .ph-gallery{columns:3; column-gap:18px; padding:0 0 2rem; max-width:var(--maxw); margin:0 auto}
 .ph-item{break-inside:avoid; margin-bottom:18px; position:relative; overflow:hidden;
@@ -302,6 +307,8 @@ body.menu-open .nav-right{ }
   font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bg-deep);
   background:var(--accent); padding:.95rem 1.7rem; border-radius:40px; border:none; cursor:pointer;
   transition:background .3s, transform .3s}
+.prose a.btn{color:var(--bg-deep)}
+.prose a.btn.ghost{color:var(--accent)}
 .btn:hover{background:var(--bone); transform:translateY(-2px)}
 .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-dim)}
 .btn.ghost:hover{background:rgba(168,194,154,.08); color:var(--bone)}
@@ -356,15 +363,11 @@ body.menu-open .nav-right{ }
   </div></section>
   <section class="section" style="padding-top:1rem"><div class="wrap">
     <div class="ph-gallery">
-<figure class="ph-item" data-lb="img/sketch-eclipsa.jpg" data-title="Eclipsa"
-      data-sub="Sketch" data-alt="Loose colour sketch of a three-eyed horned character with glowing purple hair streaks">
+<figure class="ph-item" data-lb="img/sketch-eclipsa.jpg" data-alt="Loose colour sketch of a three-eyed horned character with glowing purple hair streaks">
       <img src="img/sketch-eclipsa.jpg" loading="lazy" alt="Loose colour sketch of a three-eyed horned character with glowing purple hair streaks">
-      <figcaption class="ph-cap"><div class="t">Eclipsa</div><div class="m">Sketch</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/sketch-inky.jpg" data-title="Spade Tears"
-      data-sub="Sketch" data-alt="Inky black-and-white sketch of a horned, pointed-ear character with spade-shaped tear marks">
+<figure class="ph-item" data-lb="img/sketch-inky.jpg" data-alt="Inky black-and-white sketch of a horned, pointed-ear character with spade-shaped tear marks">
       <img src="img/sketch-inky.jpg" loading="lazy" alt="Inky black-and-white sketch of a horned, pointed-ear character with spade-shaped tear marks">
-      <figcaption class="ph-cap"><div class="t">Spade Tears</div><div class="m">Sketch</div></figcaption>
     </figure>
 </div>
   </div></section>

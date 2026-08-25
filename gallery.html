@@ -198,6 +198,11 @@ body.menu-open .nav-right{ }
   box-shadow:0 0 0 0 rgba(168,194,154,0); transition:box-shadow .5s; pointer-events:none}
 .card:hover::after{box-shadow:0 0 34px -6px rgba(168,194,154,.28)}
 
+/* ---------- video cards (process timelapse) ---------- */
+.vid-card{margin:0; border:1px solid var(--border); border-radius:11px; overflow:hidden;
+  background:var(--panel-2)}
+.vid-card video{display:block; width:100%; aspect-ratio:1; object-fit:cover; background:var(--bg-deep)}
+
 /* ---------- masonry gallery ---------- */
 .ph-gallery{columns:3; column-gap:18px; padding:0 0 2rem; max-width:var(--maxw); margin:0 auto}
 .ph-item{break-inside:avoid; margin-bottom:18px; position:relative; overflow:hidden;
@@ -302,6 +307,8 @@ body.menu-open .nav-right{ }
   font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bg-deep);
   background:var(--accent); padding:.95rem 1.7rem; border-radius:40px; border:none; cursor:pointer;
   transition:background .3s, transform .3s}
+.prose a.btn{color:var(--bg-deep)}
+.prose a.btn.ghost{color:var(--accent)}
 .btn:hover{background:var(--bone); transform:translateY(-2px)}
 .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-dim)}
 .btn.ghost:hover{background:rgba(168,194,154,.08); color:var(--bone)}
@@ -357,85 +364,53 @@ body.menu-open .nav-right{ }
   </div></section>
   <section class="section" style="padding-top:1rem"><div class="wrap">
     <div class="ph-gallery">
-<figure class="ph-item" data-lb="img/witch-red.jpg" data-title="Crosshair"
-      data-sub="Digital" data-alt="Red-eyed horned witch in a wide-brim hat, crossed by red laser lines, on a red ground">
+<figure class="ph-item" data-lb="img/witch-red.jpg" data-alt="Red-eyed horned witch in a wide-brim hat, crossed by red laser lines, on a red ground">
       <img src="img/witch-red.jpg" loading="lazy" alt="Red-eyed horned witch in a wide-brim hat, crossed by red laser lines, on a red ground">
-      <figcaption class="ph-cap"><div class="t">Crosshair</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/witch-white.jpg" data-title="Crosshair (Ash)"
-      data-sub="Digital" data-alt="The same horned witch portrait crossed by red lasers, on a pale ground">
+<figure class="ph-item" data-lb="img/witch-white.jpg" data-alt="The same horned witch portrait crossed by red lasers, on a pale ground">
       <img src="img/witch-white.jpg" loading="lazy" alt="The same horned witch portrait crossed by red lasers, on a pale ground">
-      <figcaption class="ph-cap"><div class="t">Crosshair (Ash)</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/fire-earrings.jpg" data-title="Emberline"
-      data-sub="Digital" data-alt="Split-panel profile of a character with red-and-orange hair and glowing crescent earrings">
+<figure class="ph-item" data-lb="img/fire-earrings.jpg" data-alt="Split-panel profile of a character with red-and-orange hair and glowing crescent earrings">
       <img src="img/fire-earrings.jpg" loading="lazy" alt="Split-panel profile of a character with red-and-orange hair and glowing crescent earrings">
-      <figcaption class="ph-cap"><div class="t">Emberline</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/queen-pirates.jpg" data-title="Queen of Pirates"
-      data-sub="Digital" data-alt="Winged figure in black latex wreathed in blue soul-flames against black">
+<figure class="ph-item" data-lb="img/queen-pirates.jpg" data-alt="Winged figure in black latex wreathed in blue soul-flames against black">
       <img src="img/queen-pirates.jpg" loading="lazy" alt="Winged figure in black latex wreathed in blue soul-flames against black">
-      <figcaption class="ph-cap"><div class="t">Queen of Pirates</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/hachet-latex.jpg" data-title="Hachet"
-      data-sub="Digital" data-alt="Seated figure in a black latex bodysuit with gothic 'Hachet' lettering and a dramatic shadow">
+<figure class="ph-item" data-lb="img/hachet-latex.jpg" data-alt="Seated figure in a black latex bodysuit with gothic 'Hachet' lettering and a dramatic shadow">
       <img src="img/hachet-latex.jpg" loading="lazy" alt="Seated figure in a black latex bodysuit with gothic 'Hachet' lettering and a dramatic shadow">
-      <figcaption class="ph-cap"><div class="t">Hachet</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/twin-profile-white.jpg" data-title="Two of Me"
-      data-sub="Digital" data-alt="Two horned profiles layered together, greyscale, on white">
+<figure class="ph-item" data-lb="img/twin-profile-white.jpg" data-alt="Two horned profiles layered together, greyscale, on white">
       <img src="img/twin-profile-white.jpg" loading="lazy" alt="Two horned profiles layered together, greyscale, on white">
-      <figcaption class="ph-cap"><div class="t">Two of Me</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/twin-profile-black.jpg" data-title="Two of Me (Night)"
-      data-sub="Digital" data-alt="Two horned profiles layered together, greyscale, on black">
+<figure class="ph-item" data-lb="img/twin-profile-black.jpg" data-alt="Two horned profiles layered together, greyscale, on black">
       <img src="img/twin-profile-black.jpg" loading="lazy" alt="Two horned profiles layered together, greyscale, on black">
-      <figcaption class="ph-cap"><div class="t">Two of Me (Night)</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/glasses-portrait.jpg" data-title="Vesper"
-      data-sub="Digital" data-alt="Grey-skinned elf-eared character with glowing glasses and a cross earring">
+<figure class="ph-item" data-lb="img/glasses-portrait.jpg" data-alt="Grey-skinned elf-eared character with glowing glasses and a cross earring">
       <img src="img/glasses-portrait.jpg" loading="lazy" alt="Grey-skinned elf-eared character with glowing glasses and a cross earring">
-      <figcaption class="ph-cap"><div class="t">Vesper</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/vampire.jpg" data-title="First Blood"
-      data-sub="Digital" data-alt="Red-eyed vampire with a red hair streak and blood at the mouth, in near-darkness">
+<figure class="ph-item" data-lb="img/vampire.jpg" data-alt="Red-eyed vampire with a red hair streak and blood at the mouth, in near-darkness">
       <img src="img/vampire.jpg" loading="lazy" alt="Red-eyed vampire with a red hair streak and blood at the mouth, in near-darkness">
-      <figcaption class="ph-cap"><div class="t">First Blood</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/crying-portrait.jpg" data-title="Undertow"
-      data-sub="Digital" data-alt="Moody greyscale portrait of a woman with glossy lips looking down in low light">
+<figure class="ph-item" data-lb="img/crying-portrait.jpg" data-alt="Moody greyscale portrait of a woman with glossy lips looking down in low light">
       <img src="img/crying-portrait.jpg" loading="lazy" alt="Moody greyscale portrait of a woman with glossy lips looking down in low light">
-      <figcaption class="ph-cap"><div class="t">Undertow</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/male-fur.jpg" data-title="The Warden"
-      data-sub="Digital" data-alt="Muscular horned male character with a fur collar and cross markings, greyscale">
+<figure class="ph-item" data-lb="img/male-fur.jpg" data-alt="Muscular horned male character with a fur collar and cross markings, greyscale">
       <img src="img/male-fur.jpg" loading="lazy" alt="Muscular horned male character with a fur collar and cross markings, greyscale">
-      <figcaption class="ph-cap"><div class="t">The Warden</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/embrace.jpg" data-title="Hold Still"
-      data-sub="Digital" data-alt="Two characters embracing, one crying, greyscale on white">
+<figure class="ph-item" data-lb="img/embrace.jpg" data-alt="Two characters embracing, one crying, greyscale on white">
       <img src="img/embrace.jpg" loading="lazy" alt="Two characters embracing, one crying, greyscale on white">
-      <figcaption class="ph-cap"><div class="t">Hold Still</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/zombite.jpg" data-title="Zombite"
-      data-sub="Digital" data-alt="Bat-winged cat-eared gothic girl in striped platform boots, seated">
+<figure class="ph-item" data-lb="img/zombite.jpg" data-alt="Bat-winged cat-eared gothic girl in striped platform boots, seated">
       <img src="img/zombite.jpg" loading="lazy" alt="Bat-winged cat-eared gothic girl in striped platform boots, seated">
-      <figcaption class="ph-cap"><div class="t">Zombite</div><div class="m">Digital</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/sketch-eclipsa.jpg" data-title="Eclipsa"
-      data-sub="Sketch" data-alt="Loose colour sketch of a three-eyed horned character with glowing purple hair streaks">
+<figure class="ph-item" data-lb="img/sketch-eclipsa.jpg" data-alt="Loose colour sketch of a three-eyed horned character with glowing purple hair streaks">
       <img src="img/sketch-eclipsa.jpg" loading="lazy" alt="Loose colour sketch of a three-eyed horned character with glowing purple hair streaks">
-      <figcaption class="ph-cap"><div class="t">Eclipsa</div><div class="m">Sketch</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/sketch-inky.jpg" data-title="Spade Tears"
-      data-sub="Sketch" data-alt="Inky black-and-white sketch of a horned, pointed-ear character with spade-shaped tear marks">
+<figure class="ph-item" data-lb="img/sketch-inky.jpg" data-alt="Inky black-and-white sketch of a horned, pointed-ear character with spade-shaped tear marks">
       <img src="img/sketch-inky.jpg" loading="lazy" alt="Inky black-and-white sketch of a horned, pointed-ear character with spade-shaped tear marks">
-      <figcaption class="ph-cap"><div class="t">Spade Tears</div><div class="m">Sketch</div></figcaption>
     </figure>
-<figure class="ph-item" data-lb="img/chibi-1.jpg" data-title="Little Devil"
-      data-sub="Chibi" data-alt="Chibi-style bust of a red-haired horned demon girl with bat wings and glasses">
+<figure class="ph-item" data-lb="img/chibi-1.jpg" data-alt="Chibi-style bust of a red-haired horned demon girl with bat wings and glasses">
       <img src="img/chibi-1.jpg" loading="lazy" alt="Chibi-style bust of a red-haired horned demon girl with bat wings and glasses">
-      <figcaption class="ph-cap"><div class="t">Little Devil</div><div class="m">Chibi</div></figcaption>
     </figure>
 </div>
   </div></section>

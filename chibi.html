@@ -198,6 +198,11 @@ body.menu-open .nav-right{ }
   box-shadow:0 0 0 0 rgba(168,194,154,0); transition:box-shadow .5s; pointer-events:none}
 .card:hover::after{box-shadow:0 0 34px -6px rgba(168,194,154,.28)}
 
+/* ---------- video cards (process timelapse) ---------- */
+.vid-card{margin:0; border:1px solid var(--border); border-radius:11px; overflow:hidden;
+  background:var(--panel-2)}
+.vid-card video{display:block; width:100%; aspect-ratio:1; object-fit:cover; background:var(--bg-deep)}
+
 /* ---------- masonry gallery ---------- */
 .ph-gallery{columns:3; column-gap:18px; padding:0 0 2rem; max-width:var(--maxw); margin:0 auto}
 .ph-item{break-inside:avoid; margin-bottom:18px; position:relative; overflow:hidden;
@@ -302,6 +307,8 @@ body.menu-open .nav-right{ }
   font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bg-deep);
   background:var(--accent); padding:.95rem 1.7rem; border-radius:40px; border:none; cursor:pointer;
   transition:background .3s, transform .3s}
+.prose a.btn{color:var(--bg-deep)}
+.prose a.btn.ghost{color:var(--accent)}
 .btn:hover{background:var(--bone); transform:translateY(-2px)}
 .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent-dim)}
 .btn.ghost:hover{background:rgba(168,194,154,.08); color:var(--bone)}
@@ -356,10 +363,8 @@ body.menu-open .nav-right{ }
   </div></section>
   <section class="section" style="padding-top:1rem"><div class="wrap">
     <div class="ph-gallery">
-<figure class="ph-item" data-lb="img/chibi-1.jpg" data-title="Little Devil"
-      data-sub="Chibi" data-alt="Chibi-style bust of a red-haired horned demon girl with bat wings and glasses">
+<figure class="ph-item" data-lb="img/chibi-1.jpg" data-alt="Chibi-style bust of a red-haired horned demon girl with bat wings and glasses">
       <img src="img/chibi-1.jpg" loading="lazy" alt="Chibi-style bust of a red-haired horned demon girl with bat wings and glasses">
-      <figcaption class="ph-cap"><div class="t">Little Devil</div><div class="m">Chibi</div></figcaption>
     </figure>
 </div>
   </div></section>
