@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- v20260825 -->
+<!-- v20261012 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="img/witch-red.jpg">
 <link rel="icon" type="image/png" href="img/logo-sm.png">
-<link rel="apple-touch-icon" href="img/logo-sm.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Pirata+One&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -95,7 +95,7 @@ body.menu-open .nav-right{transform:translateX(0)}
   color:var(--accent-dim); min-width:2ch}
 .nav-link.active a{color:var(--accent)}
 .nav-link.active .num{color:var(--accent)}
-/* cascade — one rule per menu item + a spare (gotcha #1) */
+/* staggered menu reveal: one rule per item, plus a spare */
 .nav-right.open .nav-links .nav-link:nth-child(1){transition-delay:0.14s}
 .nav-right.open .nav-links .nav-link:nth-child(2){transition-delay:0.20s}
 .nav-right.open .nav-links .nav-link:nth-child(3){transition-delay:0.26s}
@@ -106,7 +106,6 @@ body.menu-open .nav-right{transform:translateX(0)}
 .nav-right.open .nav-links .nav-link:nth-child(8){transition-delay:0.56s}
 .nav-right.open .nav-links .nav-link:nth-child(9){transition-delay:0.62s}
 
-body.menu-open .nav-right{ }
 .nav-right.open .nav-link{opacity:1; transform:none}
 .nav-foot{margin-top:2.6rem; position:relative; z-index:2; color:var(--text-mid);
   font-size:.95rem; opacity:0; transition:opacity .6s ease .5s}
@@ -175,6 +174,7 @@ body.menu-open .nav-right{ }
 .phero .back{color:var(--text-dim); font-family:"Cinzel",serif; font-size:.7rem;
   letter-spacing:.2em; text-transform:uppercase; display:inline-block; margin-bottom:1.4rem}
 .phero .back:hover{color:var(--accent)}
+.phero .eyebrow{display:block}
 .phero h1{font-size:clamp(2.2rem,7vw,4.4rem); margin:.5rem 0 1rem; color:var(--bone)}
 
 /* ---------- section ---------- */
@@ -207,7 +207,7 @@ body.menu-open .nav-right{ }
 
 /* ---------- masonry gallery ---------- */
 .ph-gallery{columns:3; column-gap:18px; padding:0 0 2rem; max-width:var(--maxw); margin:0 auto}
-.ph-item{break-inside:avoid; margin-bottom:18px; position:relative; overflow:hidden;
+.ph-item{break-inside:avoid; margin:0 0 18px; position:relative; overflow:hidden;
   border-radius:9px; cursor:pointer; background:var(--panel); border:1px solid var(--border)}
 .ph-item img{width:100%; display:block;
   transition:transform .6s cubic-bezier(.2,.7,.2,1), filter .4s; filter:brightness(.9)}
@@ -322,6 +322,75 @@ body.menu-open .nav-right{ }
 }
 @media(max-width:640px){.wrap{padding:0 1.4rem}.topbar{padding:1rem 1.4rem}
   .work .w-text{padding:2rem 1.4rem}}
+/* ---------- smooth scrolling (Lenis) ---------- */
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* ---------- custom scrollbar ---------- */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#1e241b; border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-dim)}
+html{scrollbar-width:thin; scrollbar-color:#1e241b transparent}
+
+/* ---------- menu: staggered colour layers slide in first ---------- */
+.sm-prelayers{position:fixed; top:0; right:0; bottom:0; width:min(560px,100%); z-index:121; pointer-events:none}
+.sm-prelayer{position:absolute; inset:0; transform:translateX(102%); transition:transform .6s cubic-bezier(.5,0,.15,1)}
+.sm-prelayer-1{background:#1a2616; transition-delay:.08s}
+.sm-prelayer-2{background:#2c3d26; transition-delay:.04s}
+body.menu-open .sm-prelayer{transform:translateX(0)}
+body.menu-open .sm-prelayer-1{transition-delay:0s}
+body.menu-open .sm-prelayer-2{transition-delay:.06s}
+body.menu-open .nav-right{transition-delay:.12s}
+
+/* ---------- pop-out tilt + shine on artwork (mouse only) ---------- */
+.ph-item, a.card{transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; will-change:transform}
+.tilt-active{z-index:5; transition:transform .12s ease-out, box-shadow .3s ease !important;
+  box-shadow:0 34px 70px -24px rgba(0,0,0,.8), 0 0 0 1px rgba(168,194,154,.22)}
+.tilt-shine{position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .3s; z-index:3;
+  border-radius:inherit; background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.13), transparent 42%)}
+.tilt-active .tilt-shine{opacity:1}
+
+/* ---------- floating links button ---------- */
+.social-float{position:fixed; bottom:1.75rem; right:1.75rem; z-index:300; display:flex; flex-direction:column;
+  align-items:center; gap:.75rem; transition:opacity .3s}
+body.menu-open .social-float{opacity:0; pointer-events:none}
+.sf-toggle{width:52px; height:52px; border-radius:50%; border:1px solid rgba(168,194,154,.35); background:#0b120a;
+  color:var(--accent); cursor:pointer; display:flex; align-items:center; justify-content:center; position:relative;
+  box-shadow:0 10px 28px -8px rgba(0,0,0,.7); transition:transform .3s, background .3s, border-color .3s}
+.sf-toggle:hover{transform:scale(1.08); background:#111b0f}
+.sf-toggle svg{width:22px; height:22px; position:absolute; transition:opacity .3s, transform .4s}
+.sf-close{opacity:0; transform:rotate(-90deg)}
+.social-float.open .sf-open{opacity:0; transform:rotate(90deg)}
+.social-float.open .sf-close{opacity:1; transform:rotate(0)}
+.social-float.open .sf-toggle{border-color:var(--accent)}
+.sf-items{display:flex; flex-direction:column; align-items:center; gap:.6rem}
+.sf-item{position:relative; width:46px; height:46px; border-radius:50%; border:1px solid var(--border); background:#111a0f;
+  color:var(--accent); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none;
+  transform:translateY(20px) scale(.6); transition:opacity .3s, transform .35s cubic-bezier(.2,.8,.2,1), background .25s, color .25s;
+  font-family:"Cinzel",serif; font-weight:600; font-size:1.05rem}
+.sf-item svg{width:20px; height:20px}
+.sf-item::after{content:attr(data-label); position:absolute; right:calc(100% + .7rem); top:50%; transform:translateY(-50%);
+  white-space:nowrap; font-family:"Cinzel",serif; font-size:.62rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--bone); background:rgba(1,1,1,.85); border:1px solid var(--border); padding:.35rem .6rem; border-radius:4px;
+  opacity:0; pointer-events:none; transition:opacity .25s}
+.sf-item:hover::after, .sf-item:focus-visible::after{opacity:1}
+.sf-item:hover{background:var(--accent); color:var(--bg-deep)}
+.social-float.open .sf-item{opacity:1; transform:none; pointer-events:auto; transition-delay:calc(var(--i) * .05s)}
+@media(max-width:600px){.social-float{bottom:1.2rem; right:1.2rem} .sf-toggle{width:48px; height:48px}
+  .sf-item::after{opacity:1}}
+
+/* ---------- ways to pay ---------- */
+.pay-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:1.6rem}
+@media(max-width:800px){.pay-grid{grid-template-columns:1fr}}
+.pay-card{border:1px solid var(--border); border-radius:11px; background:var(--panel); padding:1.8rem 1.6rem;
+  display:flex; flex-direction:column; gap:.4rem; transition:border-color .3s, transform .3s}
+a.pay-card:hover{border-color:var(--accent-dim); transform:translateY(-3px)}
+.pay-card .k{font-family:"Cinzel",serif; font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; color:var(--text-dim)}
+.pay-card .n{font-family:"Cinzel",serif; font-size:1.35rem; color:var(--bone)}
+.pay-card .h{color:var(--accent); font-size:1rem}
+@media (prefers-reduced-motion: reduce){.sf-item,.sf-toggle svg,.ph-item,a.card{transition:opacity .2s !important}}
 </style>
 </head>
 <body>
@@ -334,7 +403,8 @@ body.menu-open .nav-right{ }
   </header>
 
   <div class="nav-backdrop" data-close></div>
-  <nav class="nav-right" id="navRight" aria-label="Main menu">
+  <div class="sm-prelayers" aria-hidden="true"><div class="sm-prelayer sm-prelayer-1"></div><div class="sm-prelayer sm-prelayer-2"></div></div>
+  <nav class="nav-right" id="navRight" aria-label="Main menu" data-lenis-prevent>
     <div class="watermark" aria-hidden="true">H</div>
     <button class="menu-close" data-close aria-label="Close menu">
       <span class="seal">&times;</span> CLOSE</button>
@@ -457,6 +527,10 @@ body.menu-open .nav-right{ }
         setTimeout(function(){ cover.classList.remove('show'); bar.style.width='0%'; },380);
       },120); });
     }
+    /* back/forward cache: if the page is restored mid-transition, clear the cover */
+    window.addEventListener('pageshow', function(e){
+      if(e.persisted){ cover.classList.remove('show','full'); bar.style.width='0%'; closeMenu(); }
+    });
     document.querySelectorAll('a[href]').forEach(function(a){
       var href=a.getAttribute('href');
       if(!href||href.charAt(0)==='#'||a.target==='_blank'||href.indexOf('mailto:')===0||
@@ -504,6 +578,64 @@ body.menu-open .nav-right{ }
     });
   }
 
+})();
+</script>
+
+  <!-- Floating links button (bottom right). Change a link by editing the href="..." below. -->
+  <div class="social-float" id="socialFloat">
+    <div class="sf-items">
+      <a href="https://www.instagram.com/topaz.hachet/" target="_blank" rel="noopener" class="sf-item" style="--i:1" data-label="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.paypal.com/paypalme/topaz8063?country.x=US&amp;locale.x=en_US" target="_blank" rel="noopener" class="sf-item" style="--i:2" data-label="Pay with PayPal" aria-label="Pay with PayPal">P</a>
+      <a href="https://cash.app/$TopazOsprey8063" target="_blank" rel="noopener" class="sf-item" style="--i:3" data-label="Pay with Cash App" aria-label="Pay with Cash App">$</a>
+      <a href="mailto:haileyrodr2828@gmail.com" class="sf-item" style="--i:4" data-label="Email me" aria-label="Email me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
+    </div>
+    <button class="sf-toggle" id="sfToggle" aria-label="Links and payment" aria-expanded="false">
+      <svg class="sf-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="m8.3 10.8 7.4-4.4M8.3 13.2l7.4 4.4"/></svg>
+      <svg class="sf-close" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- smooth scrolling (Lenis); pauses while the menu or lightbox is open ---- */
+  if(!reduce && typeof Lenis!=='undefined'){
+    var lenis=new Lenis({duration:1.05, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},
+      smoothWheel:true, wheelMultiplier:1});
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+    new MutationObserver(function(){
+      document.body.style.overflow==='hidden' ? lenis.stop() : lenis.start();
+    }).observe(document.body,{attributes:true, attributeFilter:['style']});
+    window.addEventListener('pageshow',function(e){ if(e.persisted) lenis.start(); });
+  }
+
+  /* ---- floating links button ---- */
+  var sf=document.getElementById('socialFloat'), tog=document.getElementById('sfToggle');
+  if(sf&&tog){
+    tog.addEventListener('click',function(e){ e.stopPropagation();
+      var o=sf.classList.toggle('open'); tog.setAttribute('aria-expanded',o?'true':'false'); });
+    document.addEventListener('click',function(e){ if(sf.classList.contains('open')&&!sf.contains(e.target)){
+      sf.classList.remove('open'); tog.setAttribute('aria-expanded','false'); } });
+  }
+
+  /* ---- pop-out tilt + shine on artwork (mouse only) ---- */
+  if(reduce || window.matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.ph-item, a.card').forEach(function(card){
+    var shine=document.createElement('div'); shine.className='tilt-shine'; card.appendChild(shine);
+    var AMP=6, POP=1.03, raf=null;
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect(), px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+      if(raf) cancelAnimationFrame(raf);
+      raf=requestAnimationFrame(function(){
+        card.style.transform='perspective(1000px) rotateX('+((py-.5)*-2*AMP).toFixed(2)+'deg) rotateY('+((px-.5)*2*AMP).toFixed(2)+'deg) scale('+POP+')';
+        shine.style.setProperty('--mx',(px*100).toFixed(1)+'%'); shine.style.setProperty('--my',(py*100).toFixed(1)+'%');
+      });
+    });
+    card.addEventListener('mouseenter',function(){ card.classList.add('tilt-active'); });
+    card.addEventListener('mouseleave',function(){ card.classList.remove('tilt-active'); card.style.transform=''; });
+  });
 })();
 </script>
 </body>
