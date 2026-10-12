@@ -391,6 +391,35 @@ a.pay-card:hover{border-color:var(--accent-dim); transform:translateY(-3px)}
 .pay-card .n{font-family:"Cinzel",serif; font-size:1.35rem; color:var(--bone)}
 .pay-card .h{color:var(--accent); font-size:1rem}
 @media (prefers-reduced-motion: reduce){.sf-item,.sf-toggle svg,.ph-item,a.card{transition:opacity .2s !important}}
+/* ---------- menu fits 10 links on shorter screens ---------- */
+.nav-link a{font-size:clamp(1.4rem,3.6vw,2.1rem); line-height:1.3}
+.nav-right{overflow-y:auto}
+.nav-link .num{min-width:2.6em}
+.nav-right.open .nav-links .nav-link:nth-child(10){transition-delay:0.68s}
+.nav-right.open .nav-links .nav-link:nth-child(11){transition-delay:0.74s}
+
+/* ---------- end-of-page link band ---------- */
+.cta-band{display:grid; grid-template-columns:1fr auto; align-items:center; gap:2rem; position:relative;
+  border:1px solid var(--border); border-radius:14px; padding:3rem 3.2rem; overflow:hidden;
+  background:radial-gradient(circle at 85% 50%, rgba(168,194,154,.10), transparent 55%), var(--panel-2);
+  transition:border-color .4s, transform .4s}
+.cta-band:hover{border-color:var(--accent-dim); transform:translateY(-3px)}
+.cta-band h2{font-size:clamp(2rem,6vw,3.6rem); color:var(--bone); margin:.4rem 0 .6rem}
+.cta-band p{color:var(--text-mid); margin:0; max-width:46ch}
+.cta-arrow{width:84px; height:84px; border-radius:50%; border:1.4px solid var(--accent); color:var(--accent);
+  display:grid; place-items:center; font-size:2rem; transition:background .4s, color .4s, transform .4s}
+.cta-band:hover .cta-arrow{background:var(--accent); color:var(--bg-deep); transform:translateX(6px)}
+.cta-sub{margin-top:1.4rem; text-align:center; color:var(--text-dim); font-size:1rem}
+.cta-sub a{color:var(--accent); border-bottom:1px solid rgba(168,194,154,.3)}
+@media(max-width:640px){.cta-band{grid-template-columns:1fr; padding:2.2rem 1.6rem} .cta-arrow{width:60px; height:60px; font-size:1.5rem}}
+
+/* ---------- photo waiting to be added ---------- */
+.photo-slot{position:relative; aspect-ratio:4/3; border:1.5px dashed rgba(168,194,154,.28); border-radius:12px;
+  background:var(--panel-2); display:grid; place-items:center; overflow:hidden; text-align:center}
+.photo-slot .ph-msg{font-family:"Cinzel",serif; font-size:.72rem; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--text-dim)}
+.photo-slot .ph-msg span{display:block; font-size:2rem; color:var(--accent-dim); margin-bottom:.4rem; letter-spacing:0}
+.photo-slot img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
 </style>
 </head>
 <body>
@@ -416,7 +445,9 @@ a.pay-card:hover{border-color:var(--accent-dim); transform:translateY(-3px)}
 <li class="nav-link"><span class="num">V</span><a href="chibi.html">Chibi</a></li>
 <li class="nav-link"><span class="num">VI</span><a href="process.html">Process</a></li>
 <li class="nav-link"><span class="num">VII</span><a href="about.html">About</a></li>
-<li class="nav-link"><span class="num">VIII</span><a href="contact.html">Contact</a></li>
+<li class="nav-link"><span class="num">VIII</span><a href="in-person.html">In Person</a></li>
+<li class="nav-link"><span class="num">IX</span><a href="pay.html">Pay &amp; Support</a></li>
+<li class="nav-link"><span class="num">X</span><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-foot">
       <span class="lbl">Get in touch</span>
@@ -495,6 +526,8 @@ a.pay-card:hover{border-color:var(--accent-dim); transform:translateY(-3px)}
       <a href="chibi.html">Chibi</a>
       <a href="process.html">Process</a>
       <a href="about.html">About</a>
+      <a href="in-person.html">In Person</a>
+      <a href="pay.html">Pay &amp; Support</a>
       <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -550,7 +583,7 @@ a.pay-card:hover{border-color:var(--accent-dim); transform:translateY(-3px)}
   document.querySelectorAll('[data-count]').forEach(function(el){ so.observe(el); });
 
   /* ---- page transition engine ---- */
-  var PAGE_LABELS={"home": "HOME", "gallery": "GALLERY", "digital": "DIGITAL", "sketches": "SKETCHES", "chibi": "CHIBI", "process": "PROCESS", "about": "ABOUT", "contact": "CONTACT", "privacy": "PRIVACY", "terms": "TERMS", "thanks": "THANKS"};
+  var PAGE_LABELS={"home": "HOME", "gallery": "GALLERY", "digital": "DIGITAL", "sketches": "SKETCHES", "chibi": "CHIBI", "process": "PROCESS", "about": "ABOUT", "contact": "CONTACT", "privacy": "PRIVACY", "terms": "TERMS", "thanks": "THANKS", "in-person": "IN PERSON", "pay": "PAY & SUPPORT"};
   function labelFor(href){
     try{ var slug=href.split('/').pop().replace('.html','').replace('index','home')||'home';
       return PAGE_LABELS[slug]||''; }catch(e){ return ''; }   /* safe empty fallback */
